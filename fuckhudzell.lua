@@ -1,5 +1,5 @@
 task.wait(3)
-if game.PlaceId == 445664957 and not  _G.Loaded then -- Only run script if playing Parkour
+if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playing Parkour
 
     _G.Loaded = true
     print("Welcome to fuck hudzell.")
@@ -374,7 +374,7 @@ if game.PlaceId == 445664957 and not  _G.Loaded then -- Only run script if playi
 
     -- Info Section
     local Info_Section = OpTab:CreateSection("Info")
-    local Info_Label = Info_Section:CreateLabel("fuck hudzell "..Version.."\nfard man 88#6824")
+    local Info_Label = Info_Section:CreateLabel("fuck hudzell "..Version.."\ngyrmal#6824")
 
     -- Beta Tab
     local function Show_Beta_Tab()
