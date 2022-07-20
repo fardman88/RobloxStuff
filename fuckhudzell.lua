@@ -5,7 +5,7 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
     print("Welcome to fuck hudzell.")
 
     -- Declare static variables
-    local Version = "1.58"
+    local Version = "1.6"
 
     local Workspace         = game:GetService("Workspace")
     local Players           = game:GetService("Players")
@@ -96,7 +96,7 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
     end
 
     -- Hooks
-    --[[do
+    do
         local nc
         nc = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
             local args = {...}
@@ -131,7 +131,7 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
 
         onCharacterAdded(LocalPlayer.Character)
         LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
-    end]]--
+    end
 
     -- Fuck sirhurt
     if is_sirhurt_closure then
@@ -231,20 +231,16 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
     -- Combo section
     local Combo_Section = MainTab:CreateSection("Combo")
     local Set_Flow = Combo_Section:CreateToggle("Flow (!)", nil, function(x)
-        if x then Notify("Flow is temporarily disabled.", false) end
-
-        --[[if (not x) then return end
+        if (not x) then return end
 
         while x and UNSAFE do
             variables.flowActive = true
             variables.flowDelta = 100
             task.wait()
-        end--]]
+        end
     end)
     local Set_Combo = Combo_Section:CreateToggle("Set Combo (!)", nil, function(x)
-        if x then Notify("Combo is temporarily disabled.", false) end
-
-        --[[if (not x) then
+        if (not x) then
             return mainEnv.breakCombo()
         end
 
@@ -256,7 +252,7 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
             variables.comboXp = math.huge
             variables.comboLevel = Combo_Value
             task.wait()
-        end]]--
+        end
     end)
     local Set_ComboValue = Combo_Section:CreateSlider("Combo Level", 1,5,nil,true, function(x)
         Combo_Value = x
@@ -383,14 +379,14 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
             warn("fuck hudzell - Beta tab enabled")
             local Beta_Tab = MainUI:CreateTab("Beta Features")
 
-            --[[ Bulk Trading section
+            --Bulk Trading section
             local BulkTrade_Section = Beta_Tab:CreateSection("Bulk Trading")
             local BulkTrade_Toggle = BulkTrade_Section:CreateToggle("Enable bulk trading", nil, function(x)
                 Modify_Trading = x
             end)
             local Set_BulkTrade_Value = BulkTrade_Section:CreateSlider("Amount to trade", 1,200,nil,true, function(x)
                 BulkTrade_Value = x
-            end)  Set_BulkTrade_Value:SetValue(BulkTrade_Value)]]--
+            end)  Set_BulkTrade_Value:SetValue(BulkTrade_Value)
         else
             Notify("No beta features are currently being tested.", false)
             task.wait(5)
