@@ -5,7 +5,7 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
     print("Welcome to fuck hudzell.")
 
     -- Declare static variables
-    local Version = "1.6"
+    local Version = "1.61"
 
     local Workspace         = game:GetService("Workspace")
     local Players           = game:GetService("Players")
@@ -300,19 +300,20 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
     -- Level Section
     local Level_Section = MainTab:CreateSection("Fast XP")
     if Is_Synapse then
-        local Warning_Label = Level_Section:CreateLabel("Using this will give you 11m xp\nrepeatedly, stopping at lvl 450.")
+        local Warning_Label = Level_Section:CreateLabel("Using this will give you 11m xp\nrepeatedly, stopping at lvl 250.")
         local Level_Button = Level_Section:CreateButton("Fast XP (!)", function()
-            if UNSAFE and LocalPlayerData.Generic.Level.Value < 450 and not FastXP_Active then
+            if UNSAFE and LocalPlayerData.Generic.Level.Value < 250 and not FastXP_Active then
                 FastXP_Active = true
+                Notify("The level cap for FastXP has been changed from 450 to 250 due to reports of bans.", false)
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/fardman88/RobloxStuff/main/hellalevels.lua"))()
                 while task.wait(5) do
-                    if LocalPlayerData.Generic.Level.Value >= 450 then
+                    if LocalPlayerData.Generic.Level.Value >= 250 then
                         LocalPlayer.Character.Humanoid.Health = 0
                         break
                     end
                 end
-            elseif UNSAFE and LocalPlayerData.Generic.Level.Value >= 450 then
-                Notify("FastXP cannot be used at level 450 or higher.")
+            elseif UNSAFE and LocalPlayerData.Generic.Level.Value >= 250 then
+                Notify("FastXP cannot be used at level 250 or higher.")
             end
         end)
     elseif not Is_Synapse then
@@ -370,7 +371,7 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
 
     -- Info Section
     local Info_Section = OpTab:CreateSection("Info")
-    local Info_Label = Info_Section:CreateLabel("fuck hudzell "..Version.."\ngyrmal#6824")
+    local Info_Label = Info_Section:CreateLabel("fuck hudzell "..Version.."\nBy: gyrmal")
 
     -- Beta Tab
     local function Show_Beta_Tab()
@@ -418,4 +419,5 @@ if game.PlaceId == 445664957 and not _G.Loaded then -- Only run script if playin
     end)
 
     Notify("Welcome to fuck hudzell. Press " ..UserInputService:GetStringForKeyCode(Config.Keybind).. " to toggle the gui.", true)
+    Notify("fuck hudzell is no longer being actively updated, I don't play Roblox these days.", false)
 end
